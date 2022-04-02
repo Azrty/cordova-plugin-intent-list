@@ -89,13 +89,13 @@ public class IntentList extends CordovaPlugin {
                         // Convert Intent icon to base64
                         String intentIconBase64 = Base64.encodeToString(intentImageBytes, Base64.DEFAULT);
                         intentIconBase64 = "data:image/png;base64, " + intentIconBase64;
-						PackageInfo info = getAppPackageInfo(packageName);
+			// PackageInfo info = getAppPackageInfo(packageName);
                         // Create json object for current Intent
                         JSONObject intentInfo = new JSONObject();
                         intentInfo.put("label", intentLabel);
                         intentInfo.put("package", packageName);
-						intentInfo.put("version", info.versionName);
-						intentInfo.put("test", "test");
+			intentInfo.put("version", info.versionName);
+			intentInfo.put("test", "test");
                         // intentInfo.put("packageIcon", intentIconBase64);
                         applicationsList.put(intentInfo);
                     }
