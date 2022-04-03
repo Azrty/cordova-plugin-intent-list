@@ -107,7 +107,7 @@ public class IntentList extends CordovaPlugin {
                         JSONObject intentInfo = new JSONObject();
                         intentInfo.put("label", intentLabel);
                         intentInfo.put("package", packageName);
-			intentInfo.put("version", info.creator);
+			intentInfo.put("version", info.creator.source);
 			intentInfo.put("test", "test");
                         // intentInfo.put("packageIcon", intentIconBase64);
                         applicationsList.put(intentInfo);
