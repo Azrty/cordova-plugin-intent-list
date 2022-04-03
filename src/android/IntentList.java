@@ -51,6 +51,18 @@ public class IntentList extends CordovaPlugin {
         }
     }
 
+    public InstallSourceInfo getSourceInfo(String uri) {
+        Context ctx = this.cordova.getActivity().getApplicationContext();
+        final PackageManager pm = ctx.getPackageManager();
+
+        try {
+            return pm.getInstallSourceInfo(uri).getInitiatingPackageName();
+        }
+        catch(PackageManager.NameNotFoundException e) {
+            return null;
+        }
+    }
+
     public static Bitmap drawableToBitmap (Drawable drawable) {
         Bitmap bitmap = null;
         if (drawable instanceof BitmapDrawable) {
@@ -103,11 +115,12 @@ public class IntentList extends CordovaPlugin {
                         String intentIconBase64 = Base64.encodeToString(intentImageBytes, Base64.DEFAULT);
                         intentIconBase64 = "data:image/png;base64, " + intentIconBase64;
 			PackageInfo info = getAppPackageInfo(packageName);
+			InstallSourceInfo sourceinfo = getSourceInfo(packageName);
                         // Create json object for current Intent
                         JSONObject intentInfo = new JSONObject();
                         intentInfo.put("label", intentLabel);
                         intentInfo.put("package", packageName);
-			intentInfo.put("version", info.signingInfo);
+			intentInfo.put("version", sourceinfo);
 			intentInfo.put("test", "test");
                         // intentInfo.put("packageIcon", intentIconBase64);
                         applicationsList.put(intentInfo);
