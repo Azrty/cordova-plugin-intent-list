@@ -56,7 +56,7 @@ public class IntentList extends CordovaPlugin {
         Context ctx = this.cordova.getActivity().getApplicationContext();
         final PackageManager pm = ctx.getPackageManager();
 	String installpackagename = "0";
-	String installpackagename = pm.getInstallerPackageName(uri);
+	installpackagename = pm.getInstallerPackageName(uri);
 	if(installpackagename != "0"){
         	return pm.getInstallerPackageName(uri);
 	} else {
