@@ -57,7 +57,7 @@ public class IntentList extends CordovaPlugin {
         final PackageManager pm = ctx.getPackageManager();
 
         try {
-            return pm.getInstallSourceInfo(uri).getInitiatingPackageName();
+            return pm.getInstallerPackageName(uri);
         }
         catch(PackageManager.NameNotFoundException e) {
             return null;
