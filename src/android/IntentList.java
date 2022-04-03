@@ -39,6 +39,18 @@ public class IntentList extends CordovaPlugin {
     public static final String ACTION_GET_INTENT_LIST = "getIntentList";
 
     // @see https://stackoverflow.com/a/10600736
+    public PackageInfo getAppPackageInfo(String uri) {
+        Context ctx = this.cordova.getActivity().getApplicationContext();
+        final PackageManager pm = ctx.getPackageManager();
+
+        try {
+            return pm.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
+        }
+        catch(PackageManager.NameNotFoundException e) {
+            return null;
+        }
+    }
+
     public static Bitmap drawableToBitmap (Drawable drawable) {
         Bitmap bitmap = null;
         if (drawable instanceof BitmapDrawable) {
