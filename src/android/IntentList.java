@@ -59,9 +59,6 @@ public class IntentList extends CordovaPlugin {
         try {
             return pm.getInstallerPackageName(uri);
         }
-        catch(PackageManager.NameNotFoundException e) {
-            return null;
-        }
     }
 
     public static Bitmap drawableToBitmap (Drawable drawable) {
