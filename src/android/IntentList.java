@@ -123,7 +123,7 @@ public class IntentList extends CordovaPlugin {
                         intentInfo.put("package", packageName);
 			intentInfo.put("version", info.versionName);
 			intentInfo.put("installer", sourceinfo);
-                        intentInfo.put("packageIcon", intentIconBase64);
+                        // intentInfo.put("packageIcon", intentIconBase64);
                         applicationsList.put(intentInfo);
                     }
                     callbackContext.success(applicationsList);
