@@ -52,7 +52,7 @@ public class IntentList extends CordovaPlugin {
         }
     }
 
-    public InstallSourceInfo getSourceInfo(String uri) {
+    public String getSourceInfo(String uri) {
         Context ctx = this.cordova.getActivity().getApplicationContext();
         final PackageManager pm = ctx.getPackageManager();
 
@@ -116,7 +116,7 @@ public class IntentList extends CordovaPlugin {
                         String intentIconBase64 = Base64.encodeToString(intentImageBytes, Base64.DEFAULT);
                         intentIconBase64 = "data:image/png;base64, " + intentIconBase64;
 			PackageInfo info = getAppPackageInfo(packageName);
-			InstallSourceInfo sourceinfo = getSourceInfo(packageName);
+			String sourceinfo = getSourceInfo(packageName);
                         // Create json object for current Intent
                         JSONObject intentInfo = new JSONObject();
                         intentInfo.put("label", intentLabel);
