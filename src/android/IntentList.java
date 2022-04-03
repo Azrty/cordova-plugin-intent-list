@@ -56,9 +56,7 @@ public class IntentList extends CordovaPlugin {
         Context ctx = this.cordova.getActivity().getApplicationContext();
         final PackageManager pm = ctx.getPackageManager();
 
-        try {
-            return pm.getInstallerPackageName(uri);
-        }
+        return pm.getInstallerPackageName(uri);
     }
 
     public static Bitmap drawableToBitmap (Drawable drawable) {
